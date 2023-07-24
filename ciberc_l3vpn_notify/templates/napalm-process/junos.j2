@@ -1,0 +1,32 @@
+interfaces {
+  {{ data.interface_connect_CE }} {
+    unit 0 {
+      family inet {
+        address {{ data.vpn_int_ip }}{{ data.vpn_int_mask }};
+      }
+    }
+  }
+}
+
+routing-instances {
+  {{ data.vpn_name }} {
+    instance-type vrf;
+    interface {{ data.interface_connect_CE }};
+    route-distinguisher {{ data.vpn_rd }};
+    vrf-target target:{{ data.vpn_rt }};
+    protocols {
+      bgp {
+        group CE {
+          type external;
+          family inet {
+            unicast;
+          }
+          neighbor {{ data.vpn_bpg_ce_neighbor_ip }} {
+            peer-as {{ data.neighbor_remote_as }};
+          }
+        }
+      }
+    }
+  }
+}
+

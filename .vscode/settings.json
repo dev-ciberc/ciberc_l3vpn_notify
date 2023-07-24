@@ -1,0 +1,9 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true
+  },
+  "python.formatting.provider": "none",
+  "python.linting.banditEnabled": true,
+  "python.linting.enabled": true
+}

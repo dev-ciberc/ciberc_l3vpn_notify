@@ -1,0 +1,6 @@
+nornir
+nornir-jinja2
+nornir-netmiko
+napalm
+napalm-huawei-vrp
+typer
