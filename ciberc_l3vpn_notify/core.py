@@ -3,12 +3,28 @@ Module for global variables and common functions
 """
 
 import pkg_resources
+from napalm import get_network_driver
 from nornir import InitNornir
 from nornir.core.filter import F
 from nornir_jinja2.plugins.tasks import template_file
 
 template_path = pkg_resources.resource_filename(
     'ciberc_l3vpn_notify', 'templates')
+
+
+def connect_device(task):
+    """
+    Connect to device
+    """
+    driver = get_network_driver(task.host.platform)
+    device = driver(
+        hostname=task.host.hostname,
+        username=task.host.username,
+        password=task.host.password,
+        optional_args={'port': task.host.port},
+    )
+
+    return device
 
 
 def render_template_config(task):
