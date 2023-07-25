@@ -1,6 +1,8 @@
 nornir
 nornir-jinja2
 nornir-netmiko
+nornir_napalm
+nornir_utils
 napalm
 napalm-huawei-vrp
 typer
