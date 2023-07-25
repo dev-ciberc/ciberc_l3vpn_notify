@@ -11,7 +11,7 @@ template_path = pkg_resources.resource_filename(
     'ciberc_l3vpn_notify', 'templates')
 
 
-def render_template(task):
+def render_template_config(task):
     """
     Render template file
     """
@@ -20,6 +20,21 @@ def render_template(task):
         name="Render template",
         template=f"{task.host.platform}.j2",
         path=f"{template_path}/config-templates/",
+        **task.host,
+    )
+
+    return result[0].result
+
+
+def render_template_rollback(task):
+    """
+    Render template file
+    """
+    result = task.run(
+        task=template_file,
+        name="Render template",
+        template=f"{task.host.platform}.j2",
+        path=f"{template_path}/rollback-templates/",
         **task.host,
     )
 
