@@ -18,8 +18,8 @@ def render_template(task):
     result = task.run(
         task=template_file,
         name="Render template",
-        template=f"{template_path}/{task.host.platform}.j2",
-        path=f"{template_path}",
+        template=f"{task.host.platform}.j2",
+        path=f"{template_path}/config-templates/",
         **task.host,
     )
 
