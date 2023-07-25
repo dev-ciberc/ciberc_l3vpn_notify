@@ -1,0 +1,36 @@
+vrf {{ vpn_name}}
+ address-family ipv4 unicast
+  import route-target
+  {{ vpn_rt }}
+  !
+  export route-target
+  {{ vpn_rt }}
+  !
+ !
+!
+interface {{ interface_connect_CE }}
+ vrf {{ vpn_name}}
+ ipv4 address {{ vpn_int_ip }}{{ vpn_int_mask }}
+ no shutdown
+!
+route-policy Policy-PASS
+  pass
+end-policy
+!
+router bgp {{ local_bgp_as }}
+  address-family vpnv4 unicast
+  vrf {{ vpn_name}}
+   rd {{ vpn_rd }}
+   address-family ipv4 unicast
+   !
+   neighbor {{ vpn_bpg_ce_neighbor_ip }}
+     remote-as {{ neighbor_remote_as }}
+     address-family ipv4 unicast
+      route-policy Policy-PASS in
+      route-policy Policy-PASS out
+      as-override
+      commit
+    !
+   !
+ !
+!

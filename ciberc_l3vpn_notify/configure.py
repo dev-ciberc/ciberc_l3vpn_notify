@@ -22,7 +22,11 @@ def configure_l3vpn(task):
         result = conn.load_merge_candidate(config=template)
         typer.echo(f"Configuring result: {result}")
 
-        conn.commit_config()
+        try:
+            conn.commit_config()
+        except Exception:
+            pass
+
         conn.close()
     else:
         typer.echo(f"Failed to connect to {task.host.name}")
