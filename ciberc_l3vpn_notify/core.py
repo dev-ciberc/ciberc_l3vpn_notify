@@ -1,6 +1,7 @@
 """
 Module for global variables and common functions
 """
+import os
 
 import pkg_resources
 from napalm import get_network_driver
@@ -10,6 +11,18 @@ from nornir_jinja2.plugins.tasks import template_file
 
 template_path = pkg_resources.resource_filename(
     'ciberc_l3vpn_notify', 'templates')
+
+
+def backup_config(task, config: str, is_running: bool = True):
+    """
+    Backup the configuration of a device to a file
+    """
+
+    backup_folder = "backup-dispositivos" if is_running else "nueva-configuracion"  # noqa
+    os.makedirs(backup_folder, exist_ok=True)
+    backup_file = os.path.join(backup_folder, f"{task.host.name}.cfg")
+    with open(backup_file, "w", encoding="utf8") as file:
+        file.write(config)
 
 
 def connect_device(task):

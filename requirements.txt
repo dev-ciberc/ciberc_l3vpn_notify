@@ -6,3 +6,5 @@ nornir_utils
 napalm
 napalm-huawei-vrp
 typer
+setuptools
+wheel
