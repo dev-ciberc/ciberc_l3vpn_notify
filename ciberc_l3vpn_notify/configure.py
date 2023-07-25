@@ -24,7 +24,7 @@ def configure_l3vpn(task):
 
         try:
             conn.commit_config()
-        except Exception:
+        except Exception:  # pylint: disable=broad-except
             pass
 
         conn.close()
@@ -41,4 +41,4 @@ def configure(
     typer.echo("Configuring L3VPN")
     inv = automated_init(device=device)
     result = inv.run(task=configure_l3vpn)
-    print_result(result)
+    print_result(result)  # type: ignore
