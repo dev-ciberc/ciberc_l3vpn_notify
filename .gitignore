@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 hosts.yaml
 test_main.py
+backup-dispositivos
