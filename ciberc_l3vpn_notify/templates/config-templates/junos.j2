@@ -1,10 +1,31 @@
-set routing-options router-id {{vpn_name }}
-set routing-options autonomous-system {{local_bgp_as }}
-set interfaces {{interface_connect_CE }} unit 0 family inet address {{vpn_int_ip}}{{vpn_int_mask }}
-set routing-instances {{vpn_name }} instance-type vrf
-set routing-instances {{vpn_name }} interface {{interface_connect_CE}}
-set routing-instances {{vpn_name }} route-distinguisher {{vpn_rd }}
-set routing-instances {{vpn_name }} vrf-target target:{{vpn_rt }}
-set routing-instances {{vpn_name }} protocols bgp group CE type external family inet unicast
-set routing-instances {{vpn_name }} protocols bgp group CE neighbor {{vpn_bpg_ce_neighbor_ip }} peer-as {{neighbor_remote_as }} as-override
-commit
+interfaces {
+  {{ interface_connect_CE }} {
+    unit 0 {
+      family inet {
+        address {{ vpn_int_ip }}{{ vpn_int_mask }};
+      }
+    }
+  }
+}
+
+routing-instances {
+  {{ vpn_name }} {
+    instance-type vrf;
+    interface {{ interface_connect_CE }};
+    route-distinguisher {{ vpn_rd }};
+    vrf-target target:{{ vpn_rt }};
+    protocols {
+      bgp {
+        group CE {
+          type external;
+          family inet {
+            unicast;
+          }
+          neighbor {{ vpn_bpg_ce_neighbor_ip }} {
+            peer-as {{ neighbor_remote_as }};
+          }
+        }
+      }
+    }
+  }
+}
