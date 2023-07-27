@@ -8,3 +8,4 @@ napalm-huawei-vrp
 typer
 setuptools
 wheel
+webexteamsbot

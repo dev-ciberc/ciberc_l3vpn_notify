@@ -7,6 +7,7 @@ from nornir_utils.plugins.functions import print_result
 
 from ciberc_l3vpn_notify.core import (automated_init, backup_config,
                                       connect_device, render_template_config)
+from ciberc_l3vpn_notify.notify import make_notify
 
 
 def configure_l3vpn(task):
@@ -42,3 +43,4 @@ def configure(
     inv = automated_init(device=device)
     result = inv.run(task=configure_l3vpn)
     print_result(result)  # type: ignore
+    make_notify(result)
