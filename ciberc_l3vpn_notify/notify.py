@@ -51,7 +51,7 @@ def make_notify(result):
             host_ok += f"{hostname} "
 
     if host_failed:
-        notify(message=f"Failed to configure L3VPN in {host_failed}")
+        notify(message=f"The process has Failed in {host_failed}")
 
     if host_ok:
-        notify(message=f"L3VPN configured in {host_ok}")
+        notify(message=f"Process configured in {host_ok}")
