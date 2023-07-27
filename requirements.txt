@@ -9,3 +9,4 @@ typer
 setuptools
 wheel
 webexteamsbot
+tqdm

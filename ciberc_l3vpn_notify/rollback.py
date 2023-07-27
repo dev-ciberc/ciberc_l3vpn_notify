@@ -3,14 +3,14 @@ Module that performs the rollback of the equipment configuration
 """
 
 import typer
-from nornir_utils.plugins.functions import print_result
+from tqdm import tqdm
 
 from ciberc_l3vpn_notify.core import (automated_init, backup_config,
                                       connect_device, render_template_rollback)
 from ciberc_l3vpn_notify.notify import make_notify
 
 
-def rollback_l3vpn(task):
+def rollback_l3vpn(task, pbar):
     """
     rollback L3VPN
     """
@@ -20,8 +20,7 @@ def rollback_l3vpn(task):
 
     if conn.is_alive():
         backup_config(task, conn.get_config()["running"], is_running=True)
-        result = conn.load_merge_candidate(config=template)
-        typer.echo(f"Configuring result: {result}")
+        conn.load_merge_candidate(config=template)
 
         try:
             conn.commit_config()
@@ -32,6 +31,8 @@ def rollback_l3vpn(task):
     else:
         typer.echo(f"Failed to connect to {task.host.name}")
 
+    pbar.update()
+
 
 def rollback(
     device: str = typer.Option(..., help="Device to rollback"),
@@ -41,6 +42,10 @@ def rollback(
     """
     typer.echo("Configuring L3VPN")
     inv = automated_init(device=device)
-    result = inv.run(task=rollback_l3vpn)
-    print_result(result)  # type: ignore
+    len_devices = len(inv.inventory.hosts)
+
+    with tqdm(total=len_devices) as pbar:
+        result = inv.run(task=rollback_l3vpn, pbar=pbar)
+        pbar.update()
+
     make_notify(result)
