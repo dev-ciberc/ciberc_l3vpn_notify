@@ -8,6 +8,7 @@ from nornir_netmiko.tasks import netmiko_send_command
 from nornir_utils.plugins.functions import print_result
 
 from ciberc_l3vpn_notify.core import automated_init
+from ciberc_l3vpn_notify.notify import make_notify_markdown
 
 
 def _get_bgp_neighbors(data):
@@ -40,4 +41,5 @@ def reflector():
     inv = automated_init(device=None, reflector=True)
     result = inv.run(task=_report_bgp_neighbors)
     data = result['REFLECTOR'][0]
+    make_notify_markdown(data)
     print_result(data)

@@ -55,3 +55,34 @@ def make_notify(result):
 
     if host_ok:
         notify(message=f"Process configured in {host_ok}")
+
+
+def make_notify_markdown(data):
+    """
+    Notify the result of the configuration in markdown
+    """
+    text_for_markdown = ""  # noqa
+
+    for item in data.result:
+        rid = item[0]
+        _as = item[2]
+        ms_rcvd = item[3]
+        ms_sent = item[4]
+        state = int(item[9])
+
+        # si el estado es cero, icono de bola roja, si no, verde
+        if int(state) == 0:
+            icon = "🔴"
+        else:
+            icon = "🟢"
+
+        # pylint: disable=line-too-long
+        text_for_markdown += f"""\n **{rid}** \t {_as} \t {ms_rcvd} \t\t {ms_sent} \t\t {icon}::{state} \n"""  # noqa
+
+    # pylint: disable=f-string-without-interpolation
+    message = f"""
+    ### **Reflector Report**\n*RID* \t *AS* \t *MS-RCVD* \t *MS-SENT* \t *STATE* \n
+    { text_for_markdown  }
+    """  # noqa
+
+    notify(message=message, is_markdown=True)
