@@ -70,7 +70,7 @@ def render_template_rollback(task):
     return result[0].result
 
 
-def automated_init(device):
+def automated_init(device, reflector=False):
     """
     Initialize Nornir with filter by device
     """
@@ -84,8 +84,13 @@ def automated_init(device):
         },
     )
 
-    if device is not None and device != "all":
-        list_devices = device.split(',')
-        inv = inv.filter(F(name__any=list_devices))
+    if reflector:
+        inv = inv.filter(F(name__any=["REFLECTOR"]))
+    else:
+        inv = inv.filter(~F(name__any=["REFLECTOR"]))
+
+        if device is not None and device != "all":
+            list_devices = device.split(',')
+            inv = inv.filter(F(name__any=list_devices))
 
     return inv
