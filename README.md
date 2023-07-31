@@ -2,13 +2,26 @@
 
 Project to automatically deploy L3VPN in a multivendor environment, with the ability to send notifications to WebexTeams through a Bot.
 
+# Technology stack
+
+# Status
+
+***
+
+# Use Case Description
+
 # Install
 
 ```
 python3 -m pip install ciberc-l3vpn
 ```
 
-# Variables de Entorno
+# Steps to install in Ubuntu workstation (automation station)
+
+
+# Configuration
+
+## Environment Variables
 
 ```
 export WEBEX_ACCESS_TOKEN=xxxxxxx
@@ -19,10 +32,13 @@ export LIST_USER_NOTIFY=xxxxxxx
 
 `LIST_USER_NOTIFY`: Each email will be separated by `,`
 
+## Inventory
 
-# Commands
 
-## L3VPN Configure
+
+# Examples
+
+## Command L3VPN Configure
 
 This command configures L3VPN for one or all devices.
 
@@ -65,7 +81,7 @@ ciberc-l3vpn configure --device=all
 ```
 
 
-## L3VPN Rollback
+## Command L3VPN Rollback
 
 ```
 ciberc-l3vpn rollback --device=PE1,PE2
@@ -77,7 +93,7 @@ Configuring L3VPN
 2it [00:11,  5.57s/it]
 ```
 
-## L3VPN Reflector
+## Command L3VPN Reflector
 
 The reflector will show us which devices are being announced and which are not, validating which devices have been configured correctly.
 
@@ -95,3 +111,15 @@ Reflector L3VPN
   ('5.5.5.5', '4', '64512', '86221', '84691', '1010', '0', '0', '3w5d', '4'),
   ('6.6.6.6', '4', '64512', '35473', '34121', '1010', '0', '0', '3w0d', '4')]
 ```
+
+# Structure
+
+# Usage
+
+# configuration example
+
+# How to test the software
+
+# Getting help
+
+# Link Video Example
