@@ -1,10 +1,21 @@
-# CiberC L3VPN Management
+# CiberC L3VPN Management With Idempotencia and Notify
 
 Project to automatically deploy L3VPN in a multivendor environment, with the ability to send notifications to WebexTeams through a Bot.
 
 # Technology stack
 
 # Status
+
+There is only one version that has been tested and validated in an emulated environment (EVE-NG with a multivendor ISP topology).
+
+Currently, the project has the ability to send notifications to WebexTeams once a registered command has been completed.
+
+
+# Idempotencia (Configs)
+
+## Complete
+
+## Partial
 
 ***
 
