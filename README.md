@@ -71,6 +71,11 @@ ciberc-l3vpn configure --device=all
 ciberc-l3vpn rollback --device=PE1,PE2
 ```
 
+```bash
+(.venv) ➜  ciberc_l3vpn_notify git:(main) ciberc-l3vpn rollback --device=PE1                                         
+Configuring L3VPN
+2it [00:11,  5.57s/it]
+```
 
 ## L3VPN Reflector
 
@@ -80,7 +85,7 @@ The reflector will show us which devices are being announced and which are not, 
 ciberc-l3vpn reflector
 ```
 
-```python
+```bash
 Reflector L3VPN
 ---- REFLECTOR: _report_bgp_neighbors ** changed : False ----------------------- INFO
 [ ('1.1.1.1', '4', '64512', '47186', '52292', '1010', '0', '0', '4w4d', '4'),
