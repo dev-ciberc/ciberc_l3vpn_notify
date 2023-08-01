@@ -42,6 +42,8 @@ https://napalm.readthedocs.io/en/latest/support/index.html#configuration-support
 
 # Use Case Description
 
+Service providers who wish to implement L3VPN services in an automated way, with support for multi-vendor environments, can generate a standard model for service deployment using this tool. Additionally, this tool is useful for companies that already have this service and require automated configuration for multiple devices, saving time in implementation and validation. An important process in this platform is the notification system in Webex Teams.
+
 # Install
 
 ```
