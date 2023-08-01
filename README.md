@@ -248,6 +248,29 @@ Reflector L3VPN
 
 # Structure
 
+
+```bash
+├── ciberc_l3vpn_notify
+│   ├── configure.py
+│   ├── core.py
+│   ├── __init__.py
+│   ├── main.py
+│   ├── notify.py
+│   ├── reflector.py
+│   ├── rollback.py
+│   └── templates
+│       ├── config-templates
+│       │   ├── huawei_vrp.j2
+│       │   ├── ios.j2
+│       │   ├── iosxr.j2
+│       │   └── junos.j2
+│       └── rollback-templates
+│           ├── huawei_vrp.j2
+│           ├── ios.j2
+│           ├── iosxr.j2
+│           └── junos.j2
+```
+
 # Usage
 
 # configuration example
