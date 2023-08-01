@@ -273,6 +273,56 @@ Reflector L3VPN
 
 # Usage
 
+`defaults.yaml`
+```
+data:
+  local_bgp_as: "64512"
+  vpn_name: "VPN-A"
+  vpn_rd: "64512:65512"
+  vpn_rt: "64512:65512"
+  neighbor_remote_as: "65512"
+```
+
+`hosts.yaml`
+
+```
+PE8:
+  hostname: 192.168.10.88
+  port: 22
+  username: user2
+  password: passexample2
+  platform: huawei_vrp
+  data:
+    vpn_int_ip: "192.168.60.2"
+    vpn_int_mask: "255.255.255.252"
+    interface_connect_CE: "Ethernet1/0/2"
+    vpn_bpg_ce_neighbor_ip: "192.168.60.1"
+```
+
+
+GitHub Copilot: To configure these variables, you would need to modify the values in the `defaults.yaml` and `hosts.yaml` files. 
+
+In `defaults.yaml`, you can change the values of the following variables:
+- `local_bgp_as`: This is the local BGP AS number.
+- `vpn_name`: This is the name of the VPN.
+- `vpn_rd`: This is the VPN Route Distinguisher.
+- `vpn_rt`: This is the VPN Route Target.
+- `neighbor_remote_as`: This is the remote BGP AS number.
+
+In `hosts.yaml`, you can change the values of the following variables for each host:
+- `hostname`: This is the IP address or hostname of the device.
+- `port`: This is the SSH port number.
+- `username`: This is the SSH username.
+- `password`: This is the SSH password.
+- `platform`: This is the platform of the device.
+- `vpn_int_ip`: This is the IP address of the VPN interface.
+- `vpn_int_mask`: This is the subnet mask of the VPN interface.
+- `interface_connect_CE`: This is the interface that connects to the CE device.
+- `vpn_bpg_ce_neighbor_ip`: This is the IP address of the BGP neighbor on the CE device.
+
+After modifying these variables, you can use the tool to deploy the L3VPN service with the updated configuration.
+
+
 # configuration example
 
 # How to test the software
