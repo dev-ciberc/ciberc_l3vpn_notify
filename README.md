@@ -43,7 +43,18 @@ If we remember, `Cisco IOS XR` currently does not have a commit process in its s
 python3 -m pip install ciberc-l3vpn
 ```
 
-# Steps to install in Ubuntu workstation (automation station)
+# Manual Steps to install in Ubuntu workstation (automation station)
+
+```
+git clone https://github.com/dev-ciberc/ciberc_l3vpn_notify.git
+cd ciberc_l3vpn_notify
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+python3 -m pip install -r requirements.txt
+bash build.sh
+```
 
 
 # Configuration
