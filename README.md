@@ -102,7 +102,7 @@ data:
 ```
 ---
 REFLECTOR:
-  hostname: 192.168.87.77
+  hostname: 192.168.10.77
   port: 22
   username: user1
   password: passexample1
@@ -111,7 +111,7 @@ REFLECTOR:
     - 
 
 PE1:
-  hostname: 192.168.87.11
+  hostname: 192.168.10.11
   port: 22
   username: user1
   password: passexample1
@@ -123,7 +123,7 @@ PE1:
     vpn_bpg_ce_neighbor_ip: "192.168.10.1"
     
 PE4:
-  hostname: 192.168.87.44
+  hostname: 192.168.10.44
   port: 22
   username: user1
   password: passexample1
@@ -135,7 +135,7 @@ PE4:
     vpn_bpg_ce_neighbor_ip: "192.168.40.1"
     
 PE5:
-  hostname: 192.168.87.55
+  hostname: 192.168.10.55
   port: 22
   username: user1
   password: passexample1
@@ -147,7 +147,7 @@ PE5:
     vpn_bpg_ce_neighbor_ip: "192.168.50.1"
     
 PE6:
-  hostname: 192.168.87.66
+  hostname: 192.168.10.66
   port: 22
   username: user2
   password: passexample2
