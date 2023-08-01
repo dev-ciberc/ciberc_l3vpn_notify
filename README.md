@@ -2,6 +2,10 @@
 
 Project to automatically deploy L3VPN in a multivendor environment, with the ability to send notifications to WebexTeams through a Bot. Plataforms `iosxr`, `ios`, `huawei_vrp`, `junos`
 
+
+![CiberC L3VPN Notify](./imgs/ciberc_l3vpn.png)
+
+
 # Technology stack
 
 Python 3.8+ or higher, Nornir 3.3.0 and Napalm 4.1.0
@@ -326,7 +330,7 @@ PE8:
 
 # How to test the software
 
-You can check the configuration in the devices, or in the RR (see the video example).
+you can check the configuration in the devices in the generated report.
 
 This command has the ability to view the route reflector, it will display a report of the devices, and will also send a report notification `WebexTeams`.
 
@@ -334,6 +338,11 @@ This command has the ability to view the route reflector, it will display a repo
 ciberc-l3vpn reflector
 ```
 
+
+![Route Reflector](./imgs/route_reflector.png)
+
 # Getting help
+
+If you have questions, concerns, bug reports, etc., please create an issue against this repository, or send me an email to: Dev.auto@ciberc.com
 
 # Link Video Example
