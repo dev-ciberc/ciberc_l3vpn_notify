@@ -1,6 +1,6 @@
 # CiberC L3VPN Management Multivendor With Idempotencia and Notify
 
-Project to automatically deploy L3VPN in a multivendor environment, with the ability to send notifications to WebexTeams through a Bot.
+Project to automatically deploy L3VPN in a multivendor environment, with the ability to send notifications to WebexTeams through a Bot. Plataforms `iosxr`, `ios`, `huawei_vrp`, `junos`
 
 # Technology stack
 
@@ -75,6 +75,95 @@ export LIST_USER_NOTIFY=xxxxxxx
 
 ## Inventory
 
+For the correct configuration of the inventory, we rely on two Nornir files, specifically `hosts.yaml` and `defaults.yaml`, which will be located in the root directory where the CLI program will be executed.
+
+
+Example of the only variables needed for the L3VPN configuration for each file
+
+
+`defaults.yaml`
+
+```
+---
+data:
+  local_bgp_as: "64512"
+  vpn_name: "VPN-A"
+  vpn_rd: "64512:65512"
+  vpn_rt: "64512:65512"
+  neighbor_remote_as: "65512"
+```
+
+`hosts.yaml`
+
+```
+---
+REFLECTOR:
+  hostname: 192.168.87.77
+  port: 22
+  username: user1
+  password: passexample1
+  platform: ios
+  data:
+    - 
+
+PE1:
+  hostname: 192.168.87.11
+  port: 22
+  username: user1
+  password: passexample1
+  platform: iosxr
+  data:
+    vpn_int_ip: "192.168.10.2"
+    vpn_int_mask: "/30"
+    interface_connect_CE: "GigabitEthernet0/0/0/0"
+    vpn_bpg_ce_neighbor_ip: "192.168.10.1"
+    
+PE4:
+  hostname: 192.168.87.44
+  port: 22
+  username: user1
+  password: passexample1
+  platform: ios
+  data:
+    vpn_int_ip: "192.168.40.2"
+    vpn_int_mask: "255.255.255.252"
+    interface_connect_CE: "GigabitEthernet2"
+    vpn_bpg_ce_neighbor_ip: "192.168.40.1"
+    
+PE5:
+  hostname: 192.168.87.55
+  port: 22
+  username: user1
+  password: passexample1
+  platform: junos
+  data:
+    vpn_int_ip: "192.168.50.2"
+    vpn_int_mask: "/30"
+    interface_connect_CE: "em1"
+    vpn_bpg_ce_neighbor_ip: "192.168.50.1"
+    
+PE6:
+  hostname: 192.168.87.66
+  port: 22
+  username: user2
+  password: passexample2
+  platform: huawei_vrp
+  data:
+    vpn_int_ip: "192.168.60.2"
+    vpn_int_mask: "255.255.255.252"
+    interface_connect_CE: "Ethernet1/0/2"
+    vpn_bpg_ce_neighbor_ip: "192.168.60.1"
+```
+
+# Supported platforms
+
+`iosxr`
+
+`ios`
+
+`huawei_vrp`
+
+`junos`
 
 
 # Examples
