@@ -55,7 +55,7 @@ Service providers who wish to implement L3VPN services in an automated way, with
 # Install
 
 ```
-python3 -m pip install ciberc-l3vpn
+python3 -m pip install ciberc-l3vpn-notify
 ```
 
 # Manual Steps to install in Ubuntu workstation (automation station)
