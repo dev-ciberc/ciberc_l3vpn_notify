@@ -326,6 +326,14 @@ PE8:
 
 # How to test the software
 
+You can check the configuration in the devices, or in the RR (see the video example).
+
+This command has the ability to view the route reflector, it will display a report of the devices, and will also send a report notification `WebexTeams`.
+
+```
+ciberc-l3vpn reflector
+```
+
 # Getting help
 
 # Link Video Example
