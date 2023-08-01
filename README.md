@@ -11,7 +11,7 @@ There is only one version that has been tested and validated in an emulated envi
 Currently, the project has the ability to send notifications to WebexTeams once a registered command has been completed.
 
 
-# Idempotencia (Configs)
+# Idempotence (Configs)
 
 The idempotence of the system will depend on the 'dry run' manually sent by the user. The user will handle the Napalm system for commits.
 
@@ -21,7 +21,10 @@ This complete procedure is available for `Huawei`, `Cisco IOS XE`, and `Junos`.
 
 ## Partial
 
-If we remember, `Cisco IOS XR` currently does not have a commit process in its system. However, CiberC has created a process to provide partial DIFF support and allow for partial idempotence support.
+If we remember, `Cisco IOS XR` currently does not have a `Napalm Commit Confirm` process in its system. However, CiberC has created a process to provide partial DIFF support and allow for partial idempotence support with `Commit Confirm`, based on `dry run`.
+
+
+https://napalm.readthedocs.io/en/latest/support/index.html#configuration-support-matrix
 
 
 # Diff (Configs)
