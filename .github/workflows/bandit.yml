@@ -1,0 +1,26 @@
+name: Bandit
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit
+    - name: Go to directory
+      run: |
+        cd ciberc_l3vpn_notify
+    - name: Analysing the code with Bandit
+      run: |
+        find . -type f -name "*.py" -print0 | xargs -0 bandit .

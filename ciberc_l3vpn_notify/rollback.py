@@ -25,7 +25,7 @@ def rollback_l3vpn(task, pbar):
         try:
             conn.commit_config()
         except Exception:  # pylint: disable=broad-except
-            pass
+            typer.echo(f"Failed to commit configuration in {task.host.name}")
 
         conn.close()
     else:
