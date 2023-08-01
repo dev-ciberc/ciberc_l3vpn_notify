@@ -1,4 +1,6 @@
-[![Pylint](https://github.com/dev-ciberc/ciberc_l3vpn_notify/actions/workflows/pylint.yml/badge.svg)](https://github.com/dev-ciberc/ciberc_l3vpn_notify/actions/workflows/pylint.yml)
+| Quality | Security |
+|------------------|-------------------|
+| [![Pylint](https://github.com/dev-ciberc/ciberc_l3vpn_notify/actions/workflows/pylint.yml/badge.svg)](https://github.com/dev-ciberc/ciberc_l3vpn_notify/actions/workflows/pylint.yml) | [![Bandit](https://github.com/dev-ciberc/ciberc_l3vpn_notify/actions/workflows/bandit.yml/badge.svg)](https://github.com/dev-ciberc/ciberc_l3vpn_notify/actions/workflows/bandit.yml)|
 
 # CiberC L3VPN Management Multivendor With Idempotencia and Notify
 
