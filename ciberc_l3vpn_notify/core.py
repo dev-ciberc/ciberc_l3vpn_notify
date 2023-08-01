@@ -80,6 +80,7 @@ def automated_init(device, reflector=False):
             "plugin": "SimpleInventory",
             "options": {
                 "host_file": "hosts.yaml",
+                "defaults_file": "defaults.yaml",
             },
         },
     )

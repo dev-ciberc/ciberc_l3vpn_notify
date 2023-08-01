@@ -159,5 +159,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 hosts.yaml
+defaults.yaml
 test_main.py
 backup-dispositivos
