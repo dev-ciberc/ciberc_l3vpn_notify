@@ -23,6 +23,16 @@ This complete procedure is available for `Huawei`, `Cisco IOS XE`, and `Junos`.
 
 If we remember, `Cisco IOS XR` currently does not have a commit process in its system. However, CiberC has created a process to provide partial DIFF support and allow for partial idempotence support.
 
+
+# Diff (Configs)
+
+## Complete
+`Huawei`, `Cisco IOS XE`, `Junos`
+
+## Partial
+
+`Cisco IOS XR`
+
 ***
 
 # Use Case Description
