@@ -4,6 +4,8 @@ Project to automatically deploy L3VPN in a multivendor environment, with the abi
 
 # Technology stack
 
+Python 3.8+ or higher, Nornir 3.3.0 and Napalm 4.1.0
+
 # Status
 
 There is only one version that has been tested and validated in an emulated environment (EVE-NG with a multivendor ISP topology).
