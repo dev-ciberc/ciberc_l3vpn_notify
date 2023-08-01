@@ -44,8 +44,8 @@ def make_notify(result):
     """
     host_failed = ""
     host_ok = ""
-    for hostname, result in result.items():
-        if result.failed:
+    for hostname, result_item in result.items():
+        if result_item.failed:
             host_failed += f"{hostname} "
         else:
             host_ok += f"{hostname} "
