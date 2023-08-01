@@ -13,9 +13,15 @@ Currently, the project has the ability to send notifications to WebexTeams once 
 
 # Idempotencia (Configs)
 
+The idempotence of the system will depend on the 'dry run' manually sent by the user. The user will handle the Napalm system for commits.
+
 ## Complete
 
+This complete procedure is available for `Huawei`, `Cisco IOS XE`, and `Junos`.
+
 ## Partial
+
+If we remember, `Cisco IOS XR` currently does not have a commit process in its system. However, CiberC has created a process to provide partial DIFF support and allow for partial idempotence support.
 
 ***
 
